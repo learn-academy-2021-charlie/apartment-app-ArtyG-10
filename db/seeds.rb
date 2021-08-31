@@ -6,8 +6,8 @@ users = [
   }
 ]
 
-users.each do |attribute|
-  User.create attribute
+users.each do |attributes|
+  User.create attributes
 end
 
 apartments = [
@@ -35,9 +35,9 @@ apartments = [
   }
 ]
 
-first_user = User.first
-# first_user = User.where(email: 'johnsmith@test.com').first
+# first_user = User.first
+first_user = User.where(email: 'johnsmith@test.com').first
 
-apartments.each do |key|
-  first_user.apartments.create key
+apartments.each do |attributes|
+  first_user.apartments.create attributes
 end
