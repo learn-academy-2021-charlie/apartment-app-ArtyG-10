@@ -13,6 +13,21 @@ import {
 } from 'react-router-dom'
 
 class App extends React.Component {
+  constructor(props){
+    super(props)
+    this.state = {
+      apartments: []
+    }
+  }
+
+  // componentDidMount() {
+  //   this.catIndex()
+  // }
+
+  // apartmentIndex = () => {
+  //
+  // }
+
   render() {
     const {
       logged_in,
