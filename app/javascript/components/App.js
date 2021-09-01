@@ -20,13 +20,16 @@ class App extends React.Component {
     }
   }
 
-  // componentDidMount() {
-  //   this.catIndex()
-  // }
+  componentDidMount() {
+    this.apartmentIndex()
+  }
 
-  // apartmentIndex = () => {
-  //
-  // }
+  apartmentIndex = () => {
+  fetch('/apartments')
+  .then(response => response.json())
+  .then(data => this.setState({apartments: data}))
+  .catch(errors => console.log("index errors:", errors))
+  }
 
   render() {
     const {
@@ -36,7 +39,7 @@ class App extends React.Component {
       sign_in_route,
       sign_out_route
     } = this.props
-
+    console.log(this.state.apartments)
     return (
       <Router>
         <Header
