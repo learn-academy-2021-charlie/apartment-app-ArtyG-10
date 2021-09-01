@@ -49,7 +49,9 @@ class App extends React.Component {
         />
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route path="/apartmentIndex" component={ApartmentIndex}/>
+          <Route path="/apartmentIndex" render={(props) => {
+            return <ApartmentIndex apartments={this.state.apartments} />
+          }}/>
         </Switch>
         <Footer
         />
