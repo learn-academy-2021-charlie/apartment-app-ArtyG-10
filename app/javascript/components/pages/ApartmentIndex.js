@@ -1,4 +1,6 @@
 import React from 'react';
+import {NavLink} from 'react-router-dom';
+import {Button} from 'reactstrap';
 
 class ApartmentIndex extends React.Component {
   render() {
@@ -6,8 +8,9 @@ class ApartmentIndex extends React.Component {
       <>
         <h2>All the apartments:</h2>
         {this.props.apartments && this.props.apartments.map(apartment => {
-          return <p>{JSON.stringify(apartment)}</p>
-        })}
+          return (<>Apartment number {apartment.id} in {apartment.city}.
+          <a href={`/apartmentshow/${apartment.id}`}> More info </a><br />
+          </>)})}
       </>
     )
   }
