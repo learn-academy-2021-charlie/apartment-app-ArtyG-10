@@ -1,9 +1,10 @@
 import React from "react"
 import PropTypes from "prop-types"
-import Home from './pages/Home.js'
+import Home from './pages/home.js'
 import Header from './components/Header.js'
 import Footer from './components/Footer.js'
-import ApartmentIndex from './pages/ApartmentIndex'
+import ApartmentIndex from './pages/apartmentindex.js'
+import ApartmentShow from './pages/apartmentshow.js'
 
 
 import {
@@ -39,7 +40,7 @@ class App extends React.Component {
       sign_in_route,
       sign_out_route
     } = this.props
-    console.log(this.state.apartments)
+
     return (
       <Router>
         <Header
@@ -49,8 +50,13 @@ class App extends React.Component {
         />
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route path="/apartmentIndex" render={(props) => {
+          <Route path="/apartmentindex" render={(props) => {
             return <ApartmentIndex apartments={this.state.apartments} />
+          }}/>
+          <Route path='/apartmentshow/:id' render={(props) => {
+            let id = props.match.params.id
+            let apartment = this.state.apartments.find(apartment => apartment.id === +id)
+            return <ApartmentShow apartment={apartment}/>
           }}/>
         </Switch>
         <Footer
