@@ -10,23 +10,20 @@ class Header extends React.Component {
     } = this.props
     return (
       <>
-        <header>
-          <NavLink to="/">
+        <header className="nav-bar">
+          <NavLink to="/" className='header'>
             Home
           </NavLink>
-          <div className="nav-bar">
-            <ul>
-              <NavLink to="/apartmentIndex" className="nav-link">See All the Apartments</NavLink>
-            </ul>
+          <NavLink to="/apartmentIndex" className='header'>See All the Apartments
+          </NavLink>
             <ul>
               {logged_in &&
-                <a href={sign_out_route} className="nav-link">Sign Out</a>
+                <a href={sign_out_route} className='header'>Sign Out</a>
               }
               {!logged_in &&
-                <a href={sign_in_route} className="nav-link">Sign In</a>
+                <a href={sign_in_route} className='header'>Sign In</a>
               }
             </ul>
-          </div>
         </header>
       </>
     )

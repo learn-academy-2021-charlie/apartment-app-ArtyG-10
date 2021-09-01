@@ -4,10 +4,9 @@ class Home extends Component {
   render() {
     return (
       <>
-        .
-        Home page
+        <h1>Home page</h1>
       </>
     )
   }
 }
-export default Home
+export default Home;

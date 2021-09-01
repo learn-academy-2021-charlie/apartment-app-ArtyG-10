@@ -2,6 +2,7 @@ import React from "react"
 import PropTypes from "prop-types"
 import Home from './pages/Home.js'
 import Header from './components/Header.js'
+import Footer from './components/Footer.js'
 import ApartmentIndex from './pages/ApartmentIndex'
 
 
@@ -12,6 +13,21 @@ import {
 } from 'react-router-dom'
 
 class App extends React.Component {
+  constructor(props){
+    super(props)
+    this.state = {
+      apartments: []
+    }
+  }
+
+  // componentDidMount() {
+  //   this.catIndex()
+  // }
+
+  // apartmentIndex = () => {
+  //
+  // }
+
   render() {
     const {
       logged_in,
@@ -32,6 +48,8 @@ class App extends React.Component {
           <Route exact path="/" component={Home} />
           <Route path="/apartmentIndex" component={ApartmentIndex}/>
         </Switch>
+        <Footer
+        />
       </Router>
     )
   }
