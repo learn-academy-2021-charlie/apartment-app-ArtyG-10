@@ -5,6 +5,7 @@ import Header from './components/Header.js'
 import Footer from './components/Footer.js'
 import ApartmentIndex from './pages/apartmentindex.js'
 import ApartmentShow from './pages/apartmentshow.js'
+import ApartmentNew from './pages/apartmentnew.js'
 
 
 import {
@@ -32,6 +33,25 @@ class App extends React.Component {
   .catch(errors => console.log("index errors:", errors))
   }
 
+  createNewApartment = (input) => {
+    return fetch('/apartments', {
+      body: JSON.stringify(input),
+      headers: {
+        "Content-Type": "application/json"
+      },
+      method: "POST"
+    })
+    .then(response => {
+      if(response.status === 422) {
+        alert("Please check your submission.")
+      }
+      else return response.json()
+    })
+    .then(data => this.apartmentIndex())
+    .catch(errors => console.log("create errors:", errors))
+  }
+
+
   render() {
     const {
       logged_in,
@@ -49,15 +69,20 @@ class App extends React.Component {
           sign_out_route={sign_out_route}
         />
         <Switch>
-          <Route exact path="/" component={Home} />
-          <Route path="/apartmentindex" render={(props) => {
-            return <ApartmentIndex apartments={this.state.apartments} />
-          }}/>
+          <Route exact path='/' component={ Home } />
+          <Route
+            path='/apartmentindex'
+            render={props => <ApartmentIndex apartments={this.state.apartments}/>}
+          />
           <Route path='/apartmentshow/:id' render={(props) => {
             let id = props.match.params.id
             let apartment = this.state.apartments.find(apartment => apartment.id === +id)
             return <ApartmentShow apartment={apartment}/>
           }}/>
+          <Route
+            path='/apartmentnew'
+            render={props => <ApartmentNew createNewApartment={this.createNewApartment}/>}
+          />
         </Switch>
         <Footer
         />

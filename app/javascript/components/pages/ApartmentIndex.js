@@ -7,10 +7,14 @@ class ApartmentIndex extends React.Component {
     return (
       <>
         <h2>All the apartments:</h2>
-        {this.props.apartments && this.props.apartments.map(apartment => {
-          return (<>Apartment number {apartment.id} in {apartment.city}.
-          <a href={`/apartmentshow/${apartment.id}`}> More info </a><br />
-          </>)})}
+        {this.props.apartments && this.props.apartments
+          .map(apartment =>
+            <>Apartment number {apartment.id} in {apartment.city}.
+            <a href={`/apartmentshow/${apartment.id}`}> More info </a>
+            <br />
+            </>
+          )
+        }
       </>
     )
   }
