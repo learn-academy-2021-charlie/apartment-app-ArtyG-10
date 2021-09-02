@@ -13,8 +13,8 @@ class ApartmentNew extends Component {
         manager: '',
         email: '',
         price: '',
-        bedrooms: '',
-        bathrooms: '',
+        bedrooms: 0,
+        bathrooms: 0,
         pets: ''
       },
       submitted: false
@@ -65,11 +65,11 @@ class ApartmentNew extends Component {
          </FormGroup>
          <FormGroup>
            <Label>Bedrooms</Label>
-           <Input type="text" name="bedrooms" value={this.state.form.bedrooms} onChange={ this.handleChange }/>
+           <Input type="integer" name="bedrooms" value={this.state.form.bedrooms} onChange={ this.handleChange }/>
          </FormGroup>
          <FormGroup>
            <Label>Bathrooms</Label>
-           <Input type="text" name="bathrooms" value={this.state.form.bathrooms} onChange={ this.handleChange }/>
+           <Input type="integer" name="bathrooms" value={this.state.form.bathrooms} onChange={ this.handleChange }/>
          </FormGroup>
          <FormGroup>
            <Label>Pets</Label>

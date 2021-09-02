@@ -45,7 +45,7 @@ class App extends React.Component {
       if(response.status === 422) {
         alert("Please check your submission.")
       }
-      else return response.json()
+      return response.json()
     })
     .then(data => this.apartmentIndex())
     .catch(errors => console.log("create errors:", errors))
