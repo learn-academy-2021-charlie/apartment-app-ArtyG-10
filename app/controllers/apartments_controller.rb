@@ -7,7 +7,9 @@ class ApartmentsController < ApplicationController
 
   def create
     apartment = Apartment.create(apartment_params)
-    render json:apartments
+    if apartment.valid? then render json:apartment
+    else render json:apartment.erros, status:422
+    end
   end
 
   private
