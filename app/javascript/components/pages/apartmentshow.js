@@ -6,11 +6,11 @@ class ApartmentShow extends React.Component {
     return (
       <>
         {JSON.stringify(this.props.apartment)}
-        {this.props.apartment &&
+        {this.props.logged_in && (this.props.apartment &&
         <a href={`/apartmentedit/${this.props.apartment.id}`}>
         <br /><br />
         Edit this Apartment
-        </a>}
+        </a>)}
       </>
     )
   }

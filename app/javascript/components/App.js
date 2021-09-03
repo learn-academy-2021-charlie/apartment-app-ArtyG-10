@@ -100,7 +100,7 @@ class App extends React.Component {
           <Route path='/apartmentshow/:id' render={(props) => {
             let id = props.match.params.id
             let apartment = this.state.apartments.find(apartment => apartment.id === +id)
-            return <ApartmentShow apartment={apartment} />}}
+            return <ApartmentShow apartment={apartment} logged_in={logged_in}/>}}
           />
           <Route
             path='/apartmentnew'
@@ -111,7 +111,9 @@ class App extends React.Component {
             render= {props => {
               let id = props.match.params.id
               let apartment = this.state.apartments.find(apartment => apartment.id === +id)
-              return <ApartmentEdit apartment={apartment} updateApartment ={this.updateApartment}/>}}
+              return <ApartmentEdit
+                apartment={apartment}
+                updateApartment ={this.updateApartment}/>}}
           />
         </Switch>
         <Footer
