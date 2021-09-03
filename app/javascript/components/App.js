@@ -34,9 +34,9 @@ class App extends React.Component {
   .catch(errors => console.log("index errors:", errors))
   }
 
-  createNewApartment = (input) => {
-    return fetch('/apartments', {
-      body: JSON.stringify(input),
+  createNewApartment = (data) => {
+    fetch('/apartments', {
+      body: JSON.stringify(data),
       headers: {
         "Content-Type": "application/json"
       },
@@ -82,7 +82,7 @@ class App extends React.Component {
       new_user_route,
       sign_in_route,
       sign_out_route
-    } = this.props
+    } = this.props;
 
     return (
       <Router>
@@ -99,19 +99,21 @@ class App extends React.Component {
           />
           <Route path='/apartmentshow/:id' render={(props) => {
             let id = props.match.params.id
-            let apartment = this.state.apartments.find(apartment => apartment.id === +id)
-            return <ApartmentShow apartment={apartment} />}}
+            let apartment = this.state.apartments.find(unit => unit.id === +id)
+            return <ApartmentShow apartment={apartment} logged_in={logged_in} current_user={current_user}/>}}
           />
           <Route
             path='/apartmentnew'
-            render={props => <ApartmentNew createNewApartment={this.createNewApartment}/>}
+            render={props => <ApartmentNew createNewApartment={this.createNewApartment} current_user={current_user}/>}
           />
           <Route
             path='/apartmentedit/:id'
             render= {props => {
               let id = props.match.params.id
               let apartment = this.state.apartments.find(apartment => apartment.id === +id)
-              return <ApartmentEdit apartment={apartment} updateApartment ={this.updateApartment}/>}}
+              return <ApartmentEdit
+                apartment={apartment}
+                updateApartment ={this.updateApartment}/>}}
           />
         </Switch>
         <Footer

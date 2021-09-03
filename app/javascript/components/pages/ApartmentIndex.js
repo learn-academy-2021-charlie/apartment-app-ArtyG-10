@@ -9,10 +9,10 @@ class ApartmentIndex extends React.Component {
         <h2>All the apartments:</h2>
         {this.props.apartments && this.props.apartments
           .map(apartment =>
-            <>Apartment number {apartment.id} in {apartment.city}, ${apartment.price} rent.
+            <div key={apartment.id}>Apartment number {apartment.id} in {apartment.city}, ${apartment.price} rent.
             <a href={`/apartmentshow/${apartment.id}`}><br /> More info </a>
             <br />
-            </>
+            </div>
           )
         }
       </>

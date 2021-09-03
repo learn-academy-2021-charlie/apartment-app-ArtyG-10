@@ -11,17 +11,20 @@ class Header extends React.Component {
     return (
       <>
         <header className="nav-bar">
-          <NavLink to="/" className='header'>
-            Home
-          </NavLink>
-          <NavLink to="/apartmentIndex" className='header'>See All the Apartments
-          </NavLink>
             <ul>
+            <NavLink to="/" className='header'>
+              Home
+            </NavLink>
+            <NavLink to="/apartmentIndex" className='header'>See All the Apartments
+            </NavLink>
               {logged_in &&
                 <a href={sign_out_route} className='header'>Sign Out</a>
               }
               {!logged_in &&
                 <a href={sign_in_route} className='header'>Sign In</a>
+              }
+              {logged_in &&
+                <a href={'./apartmentnew'} className='header'>Add a new apartment</a>
               }
             </ul>
         </header>

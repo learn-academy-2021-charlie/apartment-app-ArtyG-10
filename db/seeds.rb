@@ -32,6 +32,17 @@ apartments = [
     bedrooms: 1,
     bathrooms: 1,
     pets: '1 cat'
+  },
+  {
+    street: '11 Broad',
+    city: 'Philadelphia',
+    state: 'PA',
+    manager: 'Joe',
+    email: 'Joe@test.com',
+    price: '1400',
+    bedrooms: 3,
+    bathrooms: 2,
+    pets: 'Yes'
   }
 ]
 
