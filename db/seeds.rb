@@ -32,7 +32,7 @@ apartments = [
     bedrooms: 1,
     bathrooms: 1,
     pets: '1 cat'
-  }
+  },
   {
     street: '11 Broad',
     city: 'Philadelphia',

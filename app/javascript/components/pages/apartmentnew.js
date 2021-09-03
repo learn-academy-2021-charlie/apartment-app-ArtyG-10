@@ -15,7 +15,8 @@ class ApartmentNew extends Component {
         price: '',
         bedrooms: 0,
         bathrooms: 0,
-        pets: ''
+        pets: '',
+        user_id: this.props.current_user.id
       },
       submitted: false
     }
@@ -34,7 +35,6 @@ class ApartmentNew extends Component {
   }
 
   render() {
-    console.log(this.state.form)
     return (
       <>
         <h3>Add a new apartment!</h3>
