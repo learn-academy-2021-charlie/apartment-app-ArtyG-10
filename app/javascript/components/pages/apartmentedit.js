@@ -29,7 +29,7 @@ class ApartmentEdit extends React.Component {
   }
 
   handleSubmit = () => {
-    this.props.createUpdateApartment(this.state.form)
+    this.props.updateApartment(this.state.form)
     this.setState({submitted:true})
   }
 
